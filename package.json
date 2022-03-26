@@ -11,7 +11,9 @@
     "build:highlightjs": "node tasks/update-highlight-languages.js",
     "build": "npm run lint:code && node tasks/build.js",
     "lint:code": "standard app/js/*.js app/js/module/**.js app/js/vendor/asciidoctor-*.js tasks/**.js spec/**/**.js",
-    "lint:firefox": "addons-linter dist/asciidoctor-browser-extension-*.zip"
+    "lint:firefox": "addons-linter dist/asciidoctor-browser-extension-*.zip",
+    "prepublish": "npm run snyk-protect",
+    "snyk-protect": "snyk-protect"
   },
   "homepage": "https://github.com/asciidoctor/asciidoctor-browser-extension",
   "author": {
@@ -54,5 +56,9 @@
     "firefox",
     "extension",
     "asciidoctor"
-  ]
+  ],
+  "snyk": true,
+  "dependencies": {
+    "@snyk/protect": "latest"
+  }
 }
